@@ -4,10 +4,6 @@
 */
 body .ui-panelgrid .ui-panelgrid-cell{
     padding: 6px;
-    /*background-color: #e5e5e5;*/
-}
-body .ui-panelgrid{
-    /*background-color: #e5e5e5;*/
 }
 
 .btnVerde{
@@ -21,6 +17,7 @@ body .ui-panelgrid{
 body .ui-datatable .ui-datatable-data > tr > td {
     padding: 6px !important;
 }
+
 body .ui-datatable .ui-paginator.ui-paginator-top{
     display: none;
 }

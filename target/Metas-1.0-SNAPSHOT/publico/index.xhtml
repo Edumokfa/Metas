@@ -29,20 +29,19 @@
             <div class="card">
                 <div class="p-grid">
                     <p:repeat value="#{indexBean.graficoXLegenda}" var="valores" >
-                        <div class="p-col-4">
+                        <div class="p-col-8">
                             <div class="box">
                                 <p:panelGrid columns="1" layout="grid">
                                     <p:chart type="bar" model="#{valores.barModel}" style="height:300px;"/>
-                                    <p:outputLabel value="#{valores.legenda}" escape="false" />
                                 </p:panelGrid>
                             </div>
+                        </div>
+                        <div class="p-col-4" style="transform: translateY(10%);">
+                            <p:outputLabel value="#{valores.legenda}" escape="false" />
                         </div>
                     </p:repeat>
                 </div>
             </div>
-
-
-
         </h:form>
     </ui:define>
 </ui:composition>
