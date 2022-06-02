@@ -51,9 +51,9 @@
                 <p:panel header="Login" styleClass="panelCenter" >
                     <p:panelGrid layout="grid" columns="1" styleClass="pnCenter " >
                         <p:outputLabel value="Usuário" />
-                        <p:inputText value="#{acessoBean.usuario}" placeholder="Usuário" />
+                        <p:inputText id="j_username" value="#{acessoBean.usuario}" placeholder="Usuário" />
                         <p:outputLabel value="Senha" />
-                        <p:password value="#{acessoBean.senha}" placeholder="Senha" />
+                        <p:password id="j_password" value="#{acessoBean.senha}" placeholder="Senha" />
                         <p:commandButton value="Login" actionListener="#{acessoBean.valida()}" icon="pi pi-sign-in" process="@form" update=":form1:mensagem"/>
                     </p:panelGrid>
                 </p:panel>

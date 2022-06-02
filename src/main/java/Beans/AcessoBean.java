@@ -6,6 +6,7 @@ package Beans;
 
 import Classes.GerUsuario;
 import Services.GerUsuarioService;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.Map;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.servlet.ServletException;
 import utils.JsfUtil;
 import utils.ListUtil;
 import utils.SecUtil;
@@ -32,7 +34,7 @@ public class AcessoBean implements Serializable {
     @EJB
     private GerUsuarioService gus;
 
-    public void valida() {
+    public void valida() throws ServletException, IOException {
         Map<String, Object> filtros = new HashMap<>();
         filtros.put("nome", usuario);
         filtros.put("senha", SecUtil.Encript(senha));

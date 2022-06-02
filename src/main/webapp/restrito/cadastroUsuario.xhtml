@@ -6,38 +6,20 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <ui:define name="titulo-pagina">Cadastro de Usuario</ui:define>
-    
-    
-
     <ui:define name="conteudo">
-        <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="https://www.flaticon.com/br/premium-icon/icons/svg/2080/2080904.svg" alt="" width="72" height="57" />
-            <h2>Cadastro de Usuários</h2>
-            <p class="lead">descrição.</p>
-        </div>
-        <form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"/>
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
         <p:growl id="mensagem" showDetail="true" />
         <h:form id="form1">
+            <div class="py-5 text-center">
+                <img class="d-block mx-auto mb-4" src="https://www.flaticon.com/br/premium-icon/icons/svg/2080/2080904.svg" alt="" width="72" height="57" />
+                <h2>Cadastro de Usuários</h2>
+            </div>
+            <form>
+            </form>
             <p:panelGrid columns="2" layout="grid">
                 <p:panelGrid columns="1" layout="grid">
                     <p:panelGrid columns="1" layout="grid">
                         <p:outputLabel value="Nome" styleClass="form-label" />
-                        <p:inputText id="nome" value="#{gerUsuarioBean.usuario.nome}" required="true" requiredMessage="O campo Nome é obrigatório" />
+                        <p:inputText id="nome" value="#{gerUsuarioBean.usuario.nome}" size="50" required="true" requiredMessage="O campo Nome é obrigatório" />
                         <p:outputLabel value="Senha"/>
                         <p:inputText value="#{gerUsuarioBean.usuario.senha}" required="true" requiredMessage="O campo Senha é obrigatório" />
                         <p:outputLabel value="CPF" />

@@ -1,10 +1,6 @@
-Beans\MovIndicadoresBean.class
 utils\SecUtil.class
 Classes\GerUsuario.class
-Beans\GerTipoIndicadoresBean.class
 Classes\MovIndXTipos.class
-utils\JsfUtil.class
-Security\GerenciaPrivilegiosUtil.class
 utils\DateUtil.class
 Classes\MovIndicadores.class
 Services\GerUsuarioService.class
