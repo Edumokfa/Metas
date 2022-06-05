@@ -18,6 +18,7 @@ import javax.servlet.ServletException;
 import utils.JsfUtil;
 import utils.ListUtil;
 import utils.SecUtil;
+import utils.StringUtil;
 
 /**
  *
@@ -27,7 +28,7 @@ import utils.SecUtil;
 @SessionScoped
 public class AcessoBean implements Serializable {
 
-    private String usuario;
+    private String cpf;
     private String senha;
     private GerUsuario ul;
 
@@ -36,7 +37,7 @@ public class AcessoBean implements Serializable {
 
     public void valida() throws ServletException, IOException {
         Map<String, Object> filtros = new HashMap<>();
-        filtros.put("nome", usuario);
+        filtros.put("cpf", StringUtil.onlyNumbers(cpf));
         filtros.put("senha", SecUtil.Encript(senha));
         List<GerUsuario> usuarios = gus.filtrar(filtros);
         if (ListUtil.isNotEmpty(usuarios)) {
@@ -47,12 +48,17 @@ public class AcessoBean implements Serializable {
         }
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void logout() {
+        ul = null;
+        JsfUtil.redirecionar("/login.xhtml");
     }
 
     public String getSenha() {
