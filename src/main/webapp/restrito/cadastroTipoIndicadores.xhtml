@@ -12,6 +12,10 @@
         <h:form id="form1">
             <p:growl id="mensagem" showDetail="true" />
 
+            <div class="py-5 text-center">
+                <h3>Cadastro de Tipos de Indicadores</h3>
+            </div>
+
             <p:panelGrid columns="3" layout="grid">
                 <p:panelGrid columns="1" layout="grid">
                     <p:outputLabel value="Descrição" />
@@ -50,7 +54,7 @@
                         </p:inputText>
                     </p:column>
                     <p:column headerText="Ação" width="90">
-                        <p:commandButton value="Remove" actionListener="#{gerTipoIndicadoresBean.remove(ixfIndex)}" tabindex="-1" update=":form1:mensagem :form1:tabFaixas" process="@this" />
+                        <p:commandButton value="Remove" icon="pi pi-trash" styleClass="btnVermelho" actionListener="#{gerTipoIndicadoresBean.remove(ixfIndex)}" tabindex="-1" update=":form1:mensagem :form1:tabFaixas" process="@this" />
                     </p:column>
                 </p:dataTable>
 

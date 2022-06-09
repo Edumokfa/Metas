@@ -17,7 +17,7 @@ import org.primefaces.PrimeFaces;
 public class JsfUtil {
 
     public static void exibeErro(String mensagem) {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", mensagem));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção", mensagem));
     }
 
     public static void exibeMensagem(String mensagem) {

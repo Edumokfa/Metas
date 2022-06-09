@@ -72,6 +72,10 @@ public class MovIndicadoresBean implements Serializable {
 
     public void salva() {
         try {
+            if (mis.isPossuiMovimentoNaData(movIndicadores.getMovDtHr(), movIndicadores.getMovCod())) {
+                JsfUtil.exibeAviso("Já existe um movimento cadastrado nesta data");
+                return;
+            }
             mis.salvar(movIndicadores);
             JsfUtil.exibeMensagem("Sucesso");
             movIndicadores = new MovIndicadores();
@@ -83,6 +87,7 @@ public class MovIndicadoresBean implements Serializable {
 
     public void cancela() {
         movIndicadores = new MovIndicadores();
+        movIndicadores.setMovDtHr(new Date());
     }
 
     public void excluir() {
@@ -100,6 +105,7 @@ public class MovIndicadoresBean implements Serializable {
             GerTipoIndicadores tpind = mis.buscaIndicadorPorValor(mov.getMviVlrResultado(), mov.getMviCodTipo().getTpiCod());
             if (tpind == null || tpind.getTpiCod() == null) {
                 JsfUtil.exibeAviso("Não foi possível calcular um percentual para este valor");
+                mov.setMviPercCalculado(null);
                 return;
             }
             mov.setMviCodTipo(tpind);

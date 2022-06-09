@@ -12,6 +12,7 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import utils.DateUtil;
+import utils.ListUtil;
 
 /**
  *
@@ -48,5 +49,15 @@ public class MovIndicadoresService extends GenericDAO<MovIndicadores> {
                 + " WHERE MI.MOV_DTHR >= "
                 + DateUtil.dataFirebird(dataIni)
                 + " AND MI.MOV_DTHR <= " + DateUtil.dataFirebird(dataFim) + " ORDER BY MI.MOV_DTHR", MovIndicadores.class);
+    }
+
+    public boolean isPossuiMovimentoNaData(Date data, Integer id) {
+        StringBuilder query = new StringBuilder();
+        query.append("SELECT * FROM MOV_INDICADORES MI ");
+        query.append("WHERE MI.MOV_DTHR = ").append(DateUtil.dataFirebird(data));
+        if (id != null) {
+            query.append("AND MI.MOV_COD <> ").append(id);
+        }
+        return ListUtil.isNotEmpty(super.executeNativeQuery(query.toString(), MovIndicadores.class));
     }
 }

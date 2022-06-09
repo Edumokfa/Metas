@@ -30,7 +30,7 @@
             background:linear-gradient(90deg, #3eafa8, #00000096),url(https://www.jornalbomdia.com.br/tb_noticias/42694/System-GPTW-2020-1.jpg);
             background-color: #cccccc;
             background-repeat: no-repeat;
-            height: 640px;
+            height: 100vh;
             background-size: cover;
             background-position: center;
             backdrop-filter: blur(4px);
@@ -51,7 +51,7 @@
                 <p:panel header="Login" styleClass="panelCenter" >
                     <p:panelGrid layout="grid" columns="1" styleClass="pnCenter " >
                         <p:outputLabel value="Cpf" />
-                        <p:inputMask value="#{acessoBean.cpf}" mask="999.999.999-99" validateMask="true" required="true" requiredMessage="O campo CPF é obrigatório" />
+                        <p:inputMask value="#{acessoBean.cpf}" placeholder="___.___.___-__" mask="999.999.999-99" validateMask="true" required="true" requiredMessage="O campo CPF é obrigatório" />
                         <p:outputLabel value="Senha" />
                         <p:password id="j_password" value="#{acessoBean.senha}" required="true" requiredMessage="O campo senha é obrigatório" placeholder="Senha" />
                         <p:commandButton value="Login" actionListener="#{acessoBean.valida()}" icon="pi pi-sign-in" process="@form" update=":form1:mensagem"/>

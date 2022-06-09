@@ -10,11 +10,18 @@
 
     <ui:define name="conteudo">
         <p:growl id="mensagem" showDetail="true" />
+
+        <div class="py-5 text-center">
+            <h3>Cadastro de Movimentos de Indicadores</h3>
+        </div>
+
         <h:form id="form1">
-            <p:panelGrid columns="3" layout="grid">
+            <p:panelGrid columns="3" layout="grid" style="margin-left: -5px">
                 <p:panelGrid columns="1" layout="grid">
                     <p:outputLabel value="Data Referência" />
-                    <p:calendar id="dtRef" placeholder="__/__/____" mask="99/99/9999" size="10" value="#{movIndicadoresBean.movIndicadores.movDtHr}"  required="true" requiredMessage="O campo Data Referência é obrigatório" showOn="button"/>
+                    <p:calendar id="dtRef" placeholder="__/__/____" mask="99/99/9999" size="10" value="#{movIndicadoresBean.movIndicadores.movDtHr}"  required="true" requiredMessage="O campo Data Referência é obrigatório" showOn="button">
+                        <p:ajax />
+                    </p:calendar>
                 </p:panelGrid>
             </p:panelGrid>
 
@@ -36,7 +43,7 @@
                         </p:inputText>
                     </p:column>
                     <p:column headerText="Ação" width="90">
-                        <p:commandButton value="Remove" actionListener="#{movIndicadoresBean.remove(mixfIndex)}" update=":mensagem :form1:tabMovimentos" process="@this" />
+                        <p:commandButton value="Remove" icon="pi pi-trash" styleClass="btnVermelho" actionListener="#{movIndicadoresBean.remove(mixfIndex)}" update=":mensagem :form1:tabMovimentos" process="@this" />
                     </p:column>
                 </p:dataTable>
 
@@ -44,8 +51,8 @@
 
                 <p:panelGrid columns="5" layout="grid">
                     <p:commandButton value="Salvar" icon="pi pi-save" actionListener="#{movIndicadoresBean.salva()}" styleClass="btnVerde" update=":mensagem @form" process="@form" />
-                    <p:commandButton value="Pesquisar" icon="pi pi-search" actionListener="#{movIndicadoresBean.pesquisa()}" styleClass="btnVerde" update=":mensagem @form" />
-                    <p:commandButton value="Cancelar" icon="pi pi-ban" actionListener="#{movIndicadoresBean.cancela()}" styleClass="btnVerde" update=":mensagem @form" />
+                    <p:commandButton value="Pesquisar" icon="pi pi-search" actionListener="#{movIndicadoresBean.pesquisa()}" styleClass="btnVerde" update=":mensagem @form" process="@this" />
+                    <p:commandButton value="Cancelar" icon="pi pi-ban" actionListener="#{movIndicadoresBean.cancela()}" styleClass="btnVerde" update=":mensagem @form" process="@this" />
                     <p:commandButton value="Excluir" icon="pi pi-trash" actionListener="#{movIndicadoresBean.excluir()}" styleClass="btnVermelho" update=":mensagem @form" process="@form" />
                 </p:panelGrid>
             </p:panelGrid>

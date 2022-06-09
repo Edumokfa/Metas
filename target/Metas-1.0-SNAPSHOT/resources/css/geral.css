@@ -25,3 +25,8 @@ body .ui-datatable .ui-paginator.ui-paginator-top{
 body .ui-button{
     border: none;
 }
+
+body .ui-calendar .ui-button.ui-button-icon-only{
+    height: 42px;
+    margin-top: -3px !important;
+}
