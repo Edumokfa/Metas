@@ -11,7 +11,7 @@
         <h:form id="form1">
             <p:growl id="mensagem" showDetail="true" />
 
-            <p:panelGrid columns="5" layout="grid" style="margin-left: -5px;">
+            <p:panelGrid columns="5" layout="grid" style="margin-left: -10px;">
                 <p:panelGrid columns="1" layout="grid">
                     <p:outputLabel value="Data Inicial" />
                     <p:calendar value="#{indexBean.dataIni}" placeholder="__/__/____" mask="99/99/9999" size="10" required="true" requiredMessage="O campo Data Inicial é obrigatório" showOn="button">
@@ -27,7 +27,7 @@
                 </p:panelGrid>
             </p:panelGrid>
 
-            <p:panelGrid columns="1" layout="grid">
+            <p:panelGrid columns="1" layout="grid" style="margin-left: -5px;">
                 <p:commandButton value="Pesquisar" icon="pi pi-search" actionListener="#{indexBean.pesquisar()}" process="@form" update="@form" />
             </p:panelGrid>
 
