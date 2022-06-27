@@ -21,6 +21,7 @@ import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import utils.DateUtil;
 import utils.GraficoXLegenda;
+import utils.JsfUtil;
 
 /**
  *
@@ -44,6 +45,11 @@ public class indexBean implements Serializable {
     }
 
     public void pesquisar() {
+        if (dataIni.compareTo(dataFim) > 0) {
+            JsfUtil.exibeAviso("Período inválido");
+            return;
+        }
+
         graficoXLegenda.clear();
         List<MovIndicadores> movIndList = mis.buscaMovimentosPorPeriodo(dataIni, dataFim);
         NumberFormat z = NumberFormat.getInstance();
@@ -74,6 +80,7 @@ public class indexBean implements Serializable {
             GraficoXLegenda gxl = new GraficoXLegenda(getFormataLegenda(legenda), barModel);
             graficoXLegenda.add(gxl);
         }
+        JsfUtil.exibeMensagem("Pesquisa realizada com sucesso");
     }
 
     public String getFormataLegenda(Map<Integer, String> legenda) {
