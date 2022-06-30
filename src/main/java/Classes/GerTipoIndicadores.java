@@ -79,6 +79,10 @@ public class GerTipoIndicadores implements Serializable {
         this.tpIndXFaixas = tpIndXFaixas;
     }
 
+    public String getDescSituacao() {
+        return tpiAtivo ? "Ativo" : "Inativo";
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;

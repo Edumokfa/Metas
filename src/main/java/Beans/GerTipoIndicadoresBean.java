@@ -44,9 +44,7 @@ public class GerTipoIndicadoresBean implements Serializable {
     }
 
     public void pesquisa() {
-        Map<String, Object> filtros = new HashMap<>();
-        filtros.put("tpiAtivo", true);
-        tipoIndicadoresList = gti.filtrar(filtros);
+        tipoIndicadoresList = gti.buscaLista();
         JsfUtil.showDlg("dlgBscIndicadores");
         JsfUtil.primeFacesUpdate("form1:tabInd");
     }

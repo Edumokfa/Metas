@@ -20,30 +20,23 @@
                 <p:panelGrid columns="1" layout="grid">
                     <p:outputLabel value="Data Referência" />
                     <p:calendar id="dtRef" placeholder="__/__/____" mask="99/99/9999" size="10" value="#{movIndicadoresBean.movIndicadores.movDtHr}"  required="true" requiredMessage="O campo Data Referência é obrigatório" showOn="button">
-                        <p:ajax />
+                        <p:ajax listener="#{movIndicadoresBean.preencheTpInd()}" process="@this" update=":form1" />
                     </p:calendar>
                 </p:panelGrid>
             </p:panelGrid>
 
             <p:panelGrid columns="1" layout="grid">
-                <p:commandButton value="adicionar" icon="pi pi-plus" actionListener="#{movIndicadoresBean.pesquisaIndicadores()}" update=":mensagem :form1:tabMovimentos :form1:tabInd" process="@this" />
                 <p:dataTable id="tabMovimentos" value="#{movIndicadoresBean.movIndicadores.movIndXTipos}" var="mixf" rowIndexVar="mixfIndex">
                     <p:column headerText="Tipo de indicador">
                         <p:outputLabel value="#{mixf.mviCodTipo.tpiDesc}" />
                     </p:column>
                     <p:column headerText="Valor atual">
-                        <p:inputText value="#{mixf.mviVlrResultado}" required="true" requiredMessage="O campo Valor Atual é obrigatório" >
-                            <p:keyFilter mask="num"/>
+                        <p:inputNumber value="#{mixf.mviVlrResultado}" required="true"  modifyValueOnWheel="false" emptyValue="zero" requiredMessage="O campo Valor Atual é obrigatório" >
                             <p:ajax listener="#{movIndicadoresBean.atualizaPercentual(mixf)}" update=":form1:tabMovimentos :mensagem" />
-                        </p:inputText>
+                        </p:inputNumber>
                     </p:column>
-                    <p:column headerText="Percentual calculado">
-                        <p:inputText value="#{mixf.mviPercCalculado}" maxlength="3" >
-                            <p:keyFilter mask="num" />
-                        </p:inputText>
-                    </p:column>
-                    <p:column headerText="Ação" width="90">
-                        <p:commandButton value="Remove" icon="pi pi-trash" styleClass="btnVermelho" actionListener="#{movIndicadoresBean.remove(mixfIndex)}" update=":mensagem :form1:tabMovimentos" process="@this" />
+                    <p:column headerText="Percentual Calculado">
+                        <p:inputNumber value="#{mixf.mviPercCalculado}" maxValue="100" disabled="true" />
                     </p:column>
                 </p:dataTable>
 
@@ -57,19 +50,8 @@
                 </p:panelGrid>
             </p:panelGrid>
 
-            <p:dialog widgetVar="dlgBscIndicadores" header="Busca de indicadores" width="600">
-                <p:dataTable id="tabInd" value="#{movIndicadoresBean.tipoIndicadoresList}" paginator="true" rows="5" var="tpi" rowIndexVar="tpiIndex">
-                    <p:column headerText="Descrição">
-                        <p:outputLabel value="#{tpi.tpiDesc}" />
-                    </p:column>
-                    <p:column headerText="Ação" width="120">
-                        <p:commandButton value="Selecionar" actionListener="#{movIndicadoresBean.selecionaTpInd(tpi)}" update=":mensagem @form" process="@this" />
-                    </p:column>
-                </p:dataTable>
-            </p:dialog>
-
             <p:dialog widgetVar="dlgBscMovimentos" header="Busca de movimentos" width="600">
-                <p:dataTable id="tabMov" value="#{movIndicadoresBean.movIndicadoresList}" paginator="true" rows="6" var="tpmv">
+                <p:dataTable id="tabMov" value="#{movIndicadoresBean.movIndicadoresList}" paginator="true" rows="10" var="tpmv">
                     <p:column headerText="Data">
                         <p:outputLabel value="#{tpmv.dtHrFormatada}" />
                     </p:column>

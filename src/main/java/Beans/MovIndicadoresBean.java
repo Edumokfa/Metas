@@ -52,6 +52,7 @@ public class MovIndicadoresBean implements Serializable {
             JsfUtil.redirecionar("/publico/index.xhtml");
         }
         movIndicadores.setMovDtHr(new Date());
+        preencheTpInd();
     }
 
     public void pesquisaIndicadores() {
@@ -125,11 +126,6 @@ public class MovIndicadoresBean implements Serializable {
         return retorno;
     }
 
-    public void remove(int index) {
-        movIndicadores.getMovIndXTipos().remove(index);
-        JsfUtil.exibeMensagem("Registro removido com sucesso");
-    }
-
     public void buscaTpInd() {
         movIndicadores.getMovIndXTipos().clear();
         tpInd = gti.busca(codTpInd);
@@ -146,22 +142,18 @@ public class MovIndicadoresBean implements Serializable {
         return retorno;
     }
 
-    public void selecionaTpInd(GerTipoIndicadores tipoInd) {
+    public void preencheTpInd() {
+        pesquisaIndicadores();
         if (ListUtil.isNotEmpty(movIndicadores.getMovIndXTipos())) {
-            for (MovIndXTipos mixt : movIndicadores.getMovIndXTipos()) {
-                if (mixt.getMviCodTipo().equals(tipoInd)) {
-                    JsfUtil.exibeAviso("Este tipo de indicador já foi adicionado na lista");
-                    return;
-                }
-            }
+            movIndicadores.getMovIndXTipos().clear();
         }
-        tpInd = tipoInd;
-        MovIndXTipos mixt = new MovIndXTipos();
-        mixt.setMviCodIndi(movIndicadores);
-        mixt.setMviCodTipo(tpInd);
-        movIndicadores.getMovIndXTipos().add(mixt);
-        JsfUtil.exibeMensagem("Registro adicionado com sucesso");
-        JsfUtil.hideDlg("dlgBscIndicadores");
+        for (GerTipoIndicadores gerTipoIndicadores : tipoIndicadoresList) {
+            MovIndXTipos mixt = new MovIndXTipos();
+            mixt.setMviCodIndi(movIndicadores);
+            mixt.setMviCodTipo(gerTipoIndicadores);
+            movIndicadores.getMovIndXTipos().add(mixt);
+        }
+        JsfUtil.exibeMensagem("Registros montados com sucesso");
     }
 
     public MovIndicadores getMovIndicadores() {

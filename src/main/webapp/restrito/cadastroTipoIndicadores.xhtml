@@ -26,7 +26,6 @@
                         <f:selectItem itemValue="#{true}" itemLabel="Ativo" />
                         <f:selectItem itemValue="#{false}" itemLabel="Inativo" />
                     </p:selectOneRadio>
-
                 </p:panelGrid>
             </p:panelGrid>
 
@@ -36,22 +35,13 @@
                                  actionListener="#{gerTipoIndicadoresBean.adiciona()}" update=":form1:mensagem :form1:tabFaixas" process="@this" />
                 <p:dataTable id="tabFaixas" value="#{gerTipoIndicadoresBean.tipoIndicadores.tpIndXFaixas}" var="ixf" rowIndexVar="ixfIndex">
                     <p:column headerText="Faixa Inicial">
-                        <p:inputText value="#{ixf.tpfFaixaIni}" >
-                            <p:keyFilter mask="num" />
-                            <p:ajax />
-                        </p:inputText>
+                        <p:inputNumber value="#{ixf.tpfFaixaIni}" modifyValueOnWheel="false" emptyValue="zero" type="tel" minValue="0" />
                     </p:column>
                     <p:column headerText="Faixa Final">
-                        <p:inputText value="#{ixf.tpfFaixaFim}" >
-                            <p:keyFilter mask="num" />
-                            <p:ajax />
-                        </p:inputText>
+                        <p:inputNumber value="#{ixf.tpfFaixaFim}" modifyValueOnWheel="false" emptyValue="zero" />
                     </p:column>
                     <p:column headerText="Percentual de premiação">
-                        <p:inputText value="#{ixf.tpfPercPremiacao}" maxlength="3" >
-                            <p:keyFilter mask="num" />
-                            <p:ajax />
-                        </p:inputText>
+                        <p:inputNumber value="#{ixf.tpfPercPremiacao}" maxValue="100" modifyValueOnWheel="false" emptyValue="zero" />
                     </p:column>
                     <p:column headerText="Ação" width="90">
                         <p:commandButton value="Remove" icon="pi pi-trash" styleClass="btnVermelho" actionListener="#{gerTipoIndicadoresBean.remove(ixfIndex)}" tabindex="-1" update=":form1:mensagem :form1:tabFaixas" process="@this" />
@@ -69,7 +59,10 @@
             </p:panelGrid>
 
             <p:dialog widgetVar="dlgBscIndicadores" header="Busca de indicadores" width="600">
-                <p:dataTable id="tabInd" value="#{gerTipoIndicadoresBean.tipoIndicadoresList}" paginator="true" rows="5" var="tpi" rowIndexVar="tpiIndex">
+                <p:dataTable id="tabInd" value="#{gerTipoIndicadoresBean.tipoIndicadoresList}" paginator="true" rows="10" var="tpi" rowIndexVar="tpiIndex">
+                    <p:column headerText="Situação" width="80">
+                        <p:outputLabel value="#{tpi.descSituacao}" />
+                    </p:column>
                     <p:column headerText="Descrição">
                         <p:outputLabel value="#{tpi.tpiDesc}" />
                     </p:column>

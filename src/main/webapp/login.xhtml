@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -52,8 +51,10 @@
                     <p:panelGrid layout="grid" columns="1" styleClass="pnCenter " >
                         <p:outputLabel value="Cpf" />
                         <p:inputMask value="#{acessoBean.cpf}" placeholder="___.___.___-__" mask="999.999.999-99" validateMask="true" required="true" requiredMessage="O campo CPF é obrigatório" />
+
                         <p:outputLabel value="Senha" />
-                        <p:password id="j_password" value="#{acessoBean.senha}" required="true" requiredMessage="O campo senha é obrigatório" placeholder="Senha" />
+                        <p:password value="#{acessoBean.senha}" required="true" requiredMessage="O campo senha é obrigatório" placeholder="Senha" />
+
                         <p:commandButton value="Login" actionListener="#{acessoBean.valida()}" icon="pi pi-sign-in" process="@form" update=":form1:mensagem"/>
                     </p:panelGrid>
                 </p:panel>
