@@ -142,6 +142,19 @@ public class MovIndicadoresBean implements Serializable {
         return retorno;
     }
 
+    public String getTotalCalculado() {
+        Double total = 0.0;
+        Integer contador = 0;
+        for (MovIndXTipos mixt : movIndicadores.getMovIndXTipos()) {
+            if (mixt.getMviPercCalculado() != null) {
+                total += mixt.getMviPercCalculado();
+                contador++;
+            }
+        }
+        total = total / contador;
+        return total.toString();
+    }
+
     public void preencheTpInd() {
         pesquisaIndicadores();
         if (ListUtil.isNotEmpty(movIndicadores.getMovIndXTipos())) {

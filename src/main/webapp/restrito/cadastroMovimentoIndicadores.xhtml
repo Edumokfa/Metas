@@ -36,8 +36,12 @@
                         </p:inputNumber>
                     </p:column>
                     <p:column headerText="Percentual Calculado">
-                        <p:inputNumber value="#{mixf.mviPercCalculado}" maxValue="100" disabled="true" />
+                        <p:outputLabel value="#{mixf.mviPercCalculado}" />
                     </p:column>
+                    <f:facet name="footer">
+                        <p:outputLabel value="Média dos percentuais #{movIndicadoresBean.totalCalculado}%"/>
+                    </f:facet>
+
                 </p:dataTable>
 
                 <br />
