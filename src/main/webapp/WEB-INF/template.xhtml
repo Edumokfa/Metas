@@ -41,6 +41,14 @@
                         </li>
                         <li class="nav-item">
                             <h:outputLink
+                                value="#{application.contextPath}/restrito/cadastroIframe.xhtml"
+                                rendered="#{acessoBean.ul.admin}"
+                                styleClass="#{(view.viewId.equals('/restrito/cadastroIframe.xhtml')) ? 'active': ''} nav-link">
+                                Cadastro de iFrame
+                            </h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink
                                 value="#{application.contextPath}/restrito/cadastroUsuario.xhtml"
                                 rendered="#{acessoBean.ul.admin}"
                                 styleClass="#{(view.viewId.equals('/restrito/cadastroUsuario.xhtml')) ? 'active': ''} nav-link">

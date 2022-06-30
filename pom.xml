@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.projeto2</groupId>
-    <artifactId>Metas</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>metas</artifactId>
+    <version>1.0</version>
     <packaging>war</packaging>
-    <name>Metas-1.0-SNAPSHOT</name>
+    <name>Metas</name>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -28,6 +28,7 @@
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>11.0.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.firebirdsql.jdbc</groupId>
@@ -57,11 +58,12 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.8</version>
+            <version>3.4</version>
         </dependency>
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}_v</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

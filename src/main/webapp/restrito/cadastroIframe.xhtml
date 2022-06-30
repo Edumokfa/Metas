@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="titulo-pagina">Cadastro de iFrame</ui:define>
+    <ui:define name="conteudo">
+        <p:growl id="mensagem" showDetail="true" />
+        <h:form id="form1">
+            <p:panelGrid columns="2" layout="grid">
+                <p:panelGrid columns="1" layout="grid">
+                    <p:panelGrid columns="1" layout="grid">
+                        <p:outputLabel value="Link iFrame PowerBi" styleClass="form-label" />
+                        <p:inputText id="nome" value="#{gerCfgIframeBean.getiFrame().frame}" size="100" required="true" requiredMessage="O campo Nome é obrigatório" />
+                    </p:panelGrid>
+                    <p:panelGrid columns="5" layout="grid">
+                        <p:commandButton value="Salvar" icon="pi pi-save" actionListener="#{gerCfgIframeBean.salva()}" styleClass="btnVerde" update=":mensagem @form" process="@form" />
+                    </p:panelGrid>
+                </p:panelGrid>
+            </p:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>

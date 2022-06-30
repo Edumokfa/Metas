@@ -13,6 +13,8 @@ Classes\GerTipoIndXFaixas.class
 Services\GerTipoIndXFaixasService.class
 utils\ListUtil.class
 Classes\GerTipoIndicadores.class
+Beans\GerCfgIframeBean.class
+Services\GerCfgFrameService.class
 Beans\indexBean.class
 Services\GerTipoIndicadoresService.class
 utils\GraficoXLegenda.class
@@ -21,3 +23,4 @@ Services\MovIndicadoresService.class
 utils\StringUtil.class
 Beans\GerBean.class
 com\projeto2\metas\resources\Crud\GenericDAO.class
+Classes\GerCfgFrame.class

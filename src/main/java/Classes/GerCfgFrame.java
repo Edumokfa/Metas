@@ -5,6 +5,7 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 /**
@@ -18,6 +19,7 @@ public class GerCfgFrame implements Serializable {
     @Id
     @Column(name = "CG_CODIGO")
     private Integer codigo;
+    @Lob
     @Column(name = "CG_IFRAMEPOWERBI")
     private String frame;
 

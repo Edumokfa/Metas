@@ -152,7 +152,7 @@ public class MovIndicadoresBean implements Serializable {
             }
         }
         total = total / contador;
-        return total.toString();
+        return String.format("%.2f", total.toString());
     }
 
     public void preencheTpInd() {
