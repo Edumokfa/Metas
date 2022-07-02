@@ -9,6 +9,7 @@
     <ui:define name="conteudo">
         <p:growl id="mensagem" showDetail="true" />
         <h:form id="form1">
+            <p:remoteCommand name="logout" actionListener="#{acessoBean.logout()}" process="@this" />
             <div class="py-5 text-center">
                 <p:graphicImage url="../resources/img/cadUser.png" dir="img" width="70px"  />
                 <h3>Cadastro de Usuários</h3>

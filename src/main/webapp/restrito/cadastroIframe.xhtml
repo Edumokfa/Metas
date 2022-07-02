@@ -9,6 +9,7 @@
     <ui:define name="conteudo">
         <p:growl id="mensagem" showDetail="true" />
         <h:form id="form1">
+            <p:remoteCommand name="logout" actionListener="#{acessoBean.logout()}" process="@this" />
             <p:panelGrid columns="2" layout="grid">
                 <p:panelGrid columns="1" layout="grid">
                     <p:panelGrid columns="1" layout="grid">

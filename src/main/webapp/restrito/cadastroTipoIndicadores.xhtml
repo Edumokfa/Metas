@@ -10,6 +10,7 @@
 
     <ui:define name="conteudo">
         <h:form id="form1">
+            <p:remoteCommand name="logout" actionListener="#{acessoBean.logout()}" process="@this" />
             <p:growl id="mensagem" showDetail="true" />
 
             <div class="py-5 text-center">

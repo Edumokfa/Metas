@@ -16,6 +16,7 @@
         </div>
 
         <h:form id="form1">
+            <p:remoteCommand name="logout" actionListener="#{acessoBean.logout()}" process="@this" />
             <p:panelGrid columns="3" layout="grid" style="margin-left: -5px">
                 <p:panelGrid columns="1" layout="grid">
                     <p:outputLabel value="Data Referência" />
@@ -31,7 +32,7 @@
                         <p:outputLabel value="#{mixf.mviCodTipo.tpiDesc}" />
                     </p:column>
                     <p:column headerText="Valor atual">
-                        <p:inputNumber value="#{mixf.mviVlrResultado}" required="true"  modifyValueOnWheel="false" emptyValue="zero" requiredMessage="O campo Valor Atual é obrigatório" >
+                        <p:inputNumber value="#{mixf.mviVlrResultado}" required="true"  modifyValueOnWheel="false" requiredMessage="O campo Valor Atual é obrigatório" >
                             <p:ajax listener="#{movIndicadoresBean.atualizaPercentual(mixf)}" update=":form1:tabMovimentos :mensagem" />
                         </p:inputNumber>
                     </p:column>
